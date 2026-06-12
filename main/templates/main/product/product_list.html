@@ -1,17 +1,21 @@
 {% extends 'main/base.html' %}
 
-
 {% block content %}
     {% if category == None %}
         <h1>Новые товары</h1>
     {% else %}
-        <h1>Товары из категории "{{category}}"</h1>
+        <h1>Товары из категории "{{ category }}"</h1>
     {% endif %}
-    {% for product in products %}
-        <li>
-            <a href="">
-                {{product}}
-            </a>
-        </li>
-    {% endfor %}
+    
+    <ul class="product-list">
+        {% for product in products %}
+            <li>
+                <a href="">
+                    {{ product }}
+                </a>
+            </li>
+        {% empty %}
+            <li class="alert">Товары не найдены</li>
+        {% endfor %}
+    </ul>
 {% endblock %}
