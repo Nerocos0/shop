@@ -19,3 +19,12 @@ def product_list(request, category_slug=None):
                       'category':category,
                       'products':products
                   })
+
+def product_detail(request, id, product_slug):
+    product = get_object_or_404(Product, id=id, slug=product_slug, is_active=True)
+    categories = Category.objects.all()
+    return render(request, 'main/product/product_detail.html',
+                  context={
+                      'product':product,
+                      'categories':categories
+                  })

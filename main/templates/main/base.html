@@ -19,7 +19,7 @@
 
         <!-- Dropdown menu -->
         <div class="dropdown">
-            <button onclick="toggleDropdown()" class="dropbtn">Categories</button>
+            <button onclick="toggleDropdown()" class="dropbtn">Категории</button>
             <div id="myDropdown" class="dropdown-content">
                 {% for category in categories %}
                     <a href="{% url 'main:category_product_list' category_slug=category.slug %}">{{ category.name }}</a>
@@ -33,7 +33,7 @@
     </div>
 
     <footer>
-        <p>© 2026 Ваш магазин. Все права защищены.</p>
+        <p>© 2026 PiskaStore. Все права защищены.</p>
     </footer>
 
     <script src="{% static 'main/js/dropdown.js' %}"></script>

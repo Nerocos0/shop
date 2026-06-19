@@ -10,7 +10,7 @@
     <ul class="product-list">
         {% for product in products %}
             <li>
-                <a href="">
+                <a href="{% url 'main:product_detail' id=product.id product_slug=product.slug %}">
                     {{ product }}
                 </a>
             </li>
