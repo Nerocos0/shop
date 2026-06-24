@@ -10,7 +10,7 @@ body {
 /* Шапка сайта */
 .header {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     padding: 15px 30px;
     background-color: #3a3a3a;
@@ -81,6 +81,7 @@ body {
 /* Выпадающее меню категорий */
 .dropdown {
     position: relative;
+    margin-left: 1600px;
     display: inline-block;
     z-index: 1000;
 }
@@ -139,6 +140,34 @@ body {
 
 .dropdown-content a:hover {
     background-color: #4a4a4a;
+    color: #ffffff;
+}
+
+/* Ссылка на корзину в шапке */
+.cart {
+    margin-left: auto;
+    background-color: #4a4a4a;
+    color: #e0e0e0;
+    padding: 10px 18px;
+    border: 1px solid #5a5a5a;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.cart a {
+    color: #e0e0e0;
+    text-decoration: none;
+    display: block;
+}
+
+.cart:hover {
+    background-color: #5c5c5c;
+    border-color: #6a6a6a;
+}
+
+.cart a:hover {
     color: #ffffff;
 }
 

@@ -3,7 +3,6 @@ from .models import Category, Product
 
 
 def product_list(request, category_slug=None):
-    categories = Category.objects.all()
     products = Product.objects.filter(is_active = True)
     category = None
 
@@ -15,16 +14,13 @@ def product_list(request, category_slug=None):
     
     return render(request, 'main/product/product_list.html', 
                   context={
-                      'categories':categories,
                       'category':category,
                       'products':products
                   })
 
 def product_detail(request, id, product_slug):
     product = get_object_or_404(Product, id=id, slug=product_slug, is_active=True)
-    categories = Category.objects.all()
     return render(request, 'main/product/product_detail.html',
                   context={
                       'product':product,
-                      'categories':categories
                   })
