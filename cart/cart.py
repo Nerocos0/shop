@@ -43,7 +43,7 @@ class Cart:
         for item in cart.values():
             item['price'] = float(item['price'])
             item['total_price'] = item['price'] * item['quantity']
-            yield
+            yield item
 
     def __len__(self):
         return sum(item['quantity'] for item in self.cart.values())

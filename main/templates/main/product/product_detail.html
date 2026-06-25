@@ -23,7 +23,12 @@
         <h1>{{ product.name }}</h1>
         <p class="price">{{ product.price }} ₽</p>
         <p class="description">{{ product.description }}</p>
-        <a href="#" class="button">Добавить в корзину</a>
+        <form action="{% url 'cart:cart_add' product.id %}" method="post">
+            {% csrf_token %}
+            {{ cart_product_form }}
+
+            <button type="submit" class="cart-add-btn">Добавить в корзину</button>
+        </form>
     </div>
 </div>
 {% endblock %}
