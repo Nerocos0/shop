@@ -23,12 +23,24 @@
         <h1>{{ product.name }}</h1>
         <p class="price">{{ product.price }} ₽</p>
         <p class="description">{{ product.description }}</p>
-        <form action="{% url 'cart:cart_add' product.id %}" method="post">
+        <form action="{% url 'cart:cart_add' product.id %}" method="post" class="styled-form">
             {% csrf_token %}
-            {{ cart_product_form }}
 
+            <div class="form-fields">
+                <div class="quantity-control">
+                    <button type="button" class="qty-btn qty-minus">−</button>
+                        {{ cart_product_form.quantity }}
+                    <button type="button" class="qty-btn qty-plus">+</button>
+                </div>
+                {{ cart_product_form.override }}
+            </div>
+            
             <button type="submit" class="cart-add-btn">Добавить в корзину</button>
         </form>
     </div>
 </div>
+{% endblock %}
+
+{% block extra_js %}
+    <script src="{% static 'main/js/quantity.js' %}"></script>
 {% endblock %}
